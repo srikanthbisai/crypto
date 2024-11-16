@@ -8,7 +8,6 @@ import {
   Tooltip,
   Filler,
   TooltipItem,
-  ScriptableContext,
   Scale,
   CoreScaleOptions,
   Tick,
@@ -137,9 +136,7 @@ const DepthChart: React.FC<DepthChartProps> = ({ orderbook }) => {
           color: 'rgba(255, 255, 255, 0.5)',
           callback: function(
             this: Scale<CoreScaleOptions>,
-            tickValue: string | number,
-            index: number,
-            ticks: Tick[]
+            tickValue: string | number
           ) {
             return typeof tickValue === 'number' 
               ? tickValue.toFixed(0)
