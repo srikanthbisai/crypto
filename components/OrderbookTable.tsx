@@ -29,7 +29,7 @@ interface Orderbook {
               {orderbook.bids.map((item, idx) => (
                 <div key={idx} className="grid grid-cols-2 text-sm text-gray-300 mb-2">
                   <span className="text-green-400">{item.price}</span>
-                  <span className="text-white">{item.volume}</span>
+                  <span className="text-black">{item.volume}</span>
                 </div>
               ))}
             </div>
@@ -42,7 +42,7 @@ interface Orderbook {
               {orderbook.asks.map((item, idx) => (
                 <div key={idx} className="grid grid-cols-2 text-sm text-gray-300 mb-2">
                   <span className="text-red-400">{item.price}</span>
-                  <span className="text-white">{item.volume}</span>
+                  <span className="text-black">{item.volume}</span>
                 </div>
               ))}
             </div>

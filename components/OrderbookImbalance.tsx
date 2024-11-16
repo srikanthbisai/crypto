@@ -8,7 +8,7 @@ const OrderbookImbalance = ({ imbalance }: OrderbookImbalanceProps) => {
   const formattedImbalance = (imbalance * 100).toFixed(2); // Convert to percentage
 
   return (
-    <div className="bg-white shadow-lg p-6 rounded-lg flex flex-col lg:flex-row justify-center items-center space-y-6 lg:space-y-0 lg:space-x-8">
+    <div className="bg-white shadow-lg p-6 rounded-lg flex flex-col lg:flex-row justify-center items-center space-y-6 lg:space-y-0 lg:space-x-8 text-black">
       <div className="w-full lg:w-1/2 pr-0 lg:pr-8 mb-6 lg:mb-0">
         <h2 className="text-2xl font-semibold mb-4">Orderbook Imbalance</h2>
         <p className="text-base mb-4">
