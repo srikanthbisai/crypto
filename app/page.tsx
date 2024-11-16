@@ -22,7 +22,7 @@ const HomePage = () => {
   const [orderbook, setOrderbook] = useState<Orderbook | null>(null);
   const [spreadData, setSpreadData] = useState<number[]>([]);
   const [imbalance, setImbalance] = useState<number | null>(null);
-  const [selectedPair, setSelectedPair] = useState<string>("BTCUSDT"); // Default pair
+  const [selectedPair, setSelectedPair] = useState<string>("BTCUSDT");
 
   const fetchOrderbook = async (pair: string) => {
     try {
@@ -41,12 +41,10 @@ const HomePage = () => {
   
       setOrderbook({ bids, asks });
   
-      // Calculate spread and update the spread data
       if (bids.length > 0 && asks.length > 0) {
         const spread = asks[0].price - bids[0].price;
         setSpreadData((prev) => [...prev.slice(-59), spread]);
   
-        // Calculate imbalance
         const bidVolume = bids.reduce((sum: number, item: OrderbookEntry) => sum + item.volume, 0);
         const askVolume = asks.reduce((sum: number, item: OrderbookEntry) => sum + item.volume, 0);
         setImbalance((bidVolume - askVolume) / (bidVolume + askVolume));
@@ -55,18 +53,18 @@ const HomePage = () => {
       console.error("Error fetching orderbook data:", error);
     }
   };
-  
+
   useEffect(() => {
+    // Fetch the orderbook when the component mounts
     fetchOrderbook(selectedPair);
     const interval = setInterval(() => fetchOrderbook(selectedPair), 1000);
-
-    return () => clearInterval(interval);
+    
+    return () => clearInterval(interval); // Cleanup on component unmount
   }, [selectedPair]);
 
   return (
     <div className="p-4 space-y-4">
       <PairSelector selectedPair={selectedPair} setSelectedPair={setSelectedPair} />
-
       {orderbook ? (
         <>
           <OrderbookTable orderbook={orderbook} />

@@ -7,7 +7,7 @@ interface Orderbook {
     if (!orderbook) return <div>Loading...</div>;
   
     return (
-      <div className="bg-white shadow-lg p-6 rounded-lg flex flex-col lg:flex-row">
+      <div className="bg-white shadow-lg p-6 rounded-lg flex flex-col justify-center items-center lg:flex-row text-black">
         <div className="w-full lg:w-1/2 pr-0 lg:pr-8 mb-6 lg:mb-0">
           <h2 className="text-2xl font-semibold mb-4">Orderbook Overview</h2>
           <p className="text-base mb-4">
@@ -29,7 +29,7 @@ interface Orderbook {
               {orderbook.bids.map((item, idx) => (
                 <div key={idx} className="grid grid-cols-2 text-sm text-gray-300 mb-2">
                   <span className="text-green-400">{item.price}</span>
-                  <span className="text-black">{item.volume}</span>
+                  <span className="text-white">{item.volume}</span>
                 </div>
               ))}
             </div>
@@ -42,7 +42,7 @@ interface Orderbook {
               {orderbook.asks.map((item, idx) => (
                 <div key={idx} className="grid grid-cols-2 text-sm text-gray-300 mb-2">
                   <span className="text-red-400">{item.price}</span>
-                  <span className="text-black">{item.volume}</span>
+                  <span className="text-white">{item.volume}</span>
                 </div>
               ))}
             </div>

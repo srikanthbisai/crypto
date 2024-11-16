@@ -1,39 +1,69 @@
-// pages/api/orderbook.js (or .ts if using TypeScript)
-import { NextResponse, NextRequest } from 'next/server';
-import axios from 'axios';
+import { NextResponse, NextRequest } from "next/server";
+import axios, { AxiosError } from "axios";
+
+interface CoinbaseOrderBook {
+  asks: [string, string][]; // Array of [price, size]
+  bids: [string, string][]; // Array of [price, size]
+  sequence: number; // Sequence number of the orderbook
+}
+
+// Convert trading pair format to Coinbase's format
+function formatPair(pair: string): string {
+  if (pair.includes("-")) return pair; // Already in the correct format
+  return `${pair.slice(0, 3)}-${pair.slice(3)}`; // Convert BTCUSDT -> BTC-USD
+}
+
+async function getCoinbaseOrderBook(pair: string): Promise<CoinbaseOrderBook | null> {
+  const url = `https://api.exchange.coinbase.com/products/${pair}/book?level=2`;
+
+  try {
+    const response = await axios.get<CoinbaseOrderBook>(url);
+    return response.data;
+  } catch (error) {
+    if (error instanceof AxiosError) {
+      console.error("Error fetching Coinbase orderbook:", error.response?.data || error.message);
+    } else {
+      console.error("Unknown error:", error);
+    }
+    return null;
+  }
+}
 
 export async function GET(request: NextRequest) {
   try {
-    console.log("Request URL:", request.url);
-    console.log("BINANCE_API_URL:", process.env.BINANCE_API_URL);
-
     const url = new URL(request.url);
-    const pair = url.searchParams.get("pair") || "BTCUSDT";
+    const rawPair = url.searchParams.get("pair") || "BTCUSD"; // Default to BTCUSD
+    const formattedPair = formatPair(rawPair); // Convert to Coinbase's format
 
-    const apiUrl = process.env.BINANCE_API_URL;
-    if (!apiUrl) {
-      console.error("BINANCE_API_URL is not set in environment variables.");
+    const orderBook = await getCoinbaseOrderBook(formattedPair);
+
+    if (!orderBook) {
       return NextResponse.json(
-        { error: "API URL not set in environment variables" },
+        { error: "Failed to fetch orderbook data from Coinbase API" },
         { status: 500 }
       );
     }
 
-    console.log("Making request to:", `${apiUrl}?symbol=${pair}&limit=10`);
-    const response = await axios.get(`${apiUrl}?symbol=${pair}&limit=10`);
+    // Prepare the response data
+    const responseData = {
+      asks: orderBook.asks.slice(0, 10), // Top 10 asks
+      bids: orderBook.bids.slice(0, 10), // Top 10 bids
+      spread: parseFloat(orderBook.asks[0][0]) - parseFloat(orderBook.bids[0][0]), // Spread calculation
+    };
 
-    return NextResponse.json(response.data);
-  } catch (error) {
-    const errorMessage = error instanceof Error ? error.message : "Unknown error";
-    console.error("API Error:", errorMessage);
+    return NextResponse.json(responseData);
+  } catch (error: unknown) {
+    if (error instanceof AxiosError) {
+      console.error("API Error:", error.response?.data || error.message);
+    } else if (error instanceof Error) {
+      console.error("API Error:", error.message);
+    } else {
+      console.error("Unknown error:", error);
+    }
+
     return NextResponse.json(
-      { error: `Failed to fetch data: ${errorMessage}` },
+      { error: `Error fetching data: ${(error instanceof Error ? error.message : "Unknown error")}` },
       { status: 500 }
     );
   }
 }
-
-// Enable Edge runtime
-export const config = {
-  runtime: 'edge', // This enables the edge function
-};
