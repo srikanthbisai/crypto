@@ -8,10 +8,15 @@ import {
   Tooltip,
   Filler,
   TooltipItem,
+  ScriptableContext,
+  Scale,
+  CoreScaleOptions,
+  Tick,
 } from 'chart.js';
 import { Line } from 'react-chartjs-2';
 import annotationPlugin from 'chartjs-plugin-annotation';
 
+// Register chart components and plugins
 ChartJS.register(
   LineElement,
   PointElement,
@@ -130,7 +135,16 @@ const DepthChart: React.FC<DepthChartProps> = ({ orderbook }) => {
         },
         ticks: {
           color: 'rgba(255, 255, 255, 0.5)',
-          callback: (value: number) => value.toFixed(0),
+          callback: function(
+            this: Scale<CoreScaleOptions>,
+            tickValue: string | number,
+            index: number,
+            ticks: Tick[]
+          ) {
+            return typeof tickValue === 'number' 
+              ? tickValue.toFixed(0)
+              : parseFloat(tickValue).toFixed(0);
+          },
           min: 0,
           max: maxVolume > 0 ? maxVolume * 1.2 : 100,
           stepSize: 10,
