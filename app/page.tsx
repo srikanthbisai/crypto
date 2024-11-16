@@ -42,7 +42,8 @@ const HomePage = () => {
       setOrderbook({ bids, asks });
   
       if (bids.length > 0 && asks.length > 0) {
-        const spread = asks[0].price - bids[0].price;
+        // Calculate spread as a percentage
+        const spread = (asks[0].price - bids[0].price) / asks[0].price;
         setSpreadData((prev) => [...prev.slice(-59), spread]);
   
         const bidVolume = bids.reduce((sum: number, item: OrderbookEntry) => sum + item.volume, 0);
