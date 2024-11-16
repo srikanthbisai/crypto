@@ -6,9 +6,9 @@ export async function GET(request: NextRequest) {
     const url = new URL(request.url);
     const pair = url.searchParams.get("pair") || "BTCUSDT";
 
-    const response = await axios.get(
-      `https://api.binance.com/api/v3/depth?symbol=${pair}&limit=10`
-    );
+    const apiUrl = process.env.BINANCE_API_URL;
+    const response = await axios.get(`${apiUrl}?symbol=${pair}&limit=10`);
+    
 
     return NextResponse.json(response.data);
   } catch (error) {
