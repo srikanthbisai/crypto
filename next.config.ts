@@ -1,10 +1,11 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  reactStrictMode: true,  // Optional: Enables React's Strict Mode (helps with identifying potential issues in your app)
+  reactStrictMode: true, 
   env: {
-    BINANCE_API_URL: process.env.BINANCE_API_URL,  // Exposes the environment variable to your app
+    BINANCE_API_URL: process.env.BINANCE_API_URL, 
   },
+  output: "standalone", 
 };
 
 export default nextConfig;
