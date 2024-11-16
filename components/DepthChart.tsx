@@ -8,12 +8,10 @@ import {
   Tooltip,
   Filler,
   TooltipItem,
-  ScriptableContext,
 } from 'chart.js';
 import { Line } from 'react-chartjs-2';
 import annotationPlugin from 'chartjs-plugin-annotation';
 
-// Register chart components and plugins
 ChartJS.register(
   LineElement,
   PointElement,
