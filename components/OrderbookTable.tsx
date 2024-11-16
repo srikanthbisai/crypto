@@ -23,12 +23,12 @@ interface Orderbook {
             <div>
               <h4 className="font-semibold text-yellow-500 mb-2">Bids</h4>
               <div className="grid grid-cols-2 text-gray-500 text-sm font-semibold mb-2">
-                <span>Bid Price</span>
+                <span>Bid Price ($)</span>
                 <span>Amount</span>
               </div>
               {orderbook.bids.map((item, idx) => (
                 <div key={idx} className="grid grid-cols-2 text-sm text-gray-300 mb-2">
-                  <span className="text-green-400">{item.price}</span>
+                  <span className="text-green-400">$ {item.price}</span>
                   <span className="text-white">{item.volume}</span>
                 </div>
               ))}
@@ -36,12 +36,12 @@ interface Orderbook {
             <div>
               <h4 className="font-semibold text-yellow-500 mb-2">Asks</h4>
               <div className="grid grid-cols-2 text-gray-400 text-sm font-semibold mb-2">
-                <span>Ask Price</span>
+                <span>Ask Price ($)</span>
                 <span>Amount</span>
               </div>
               {orderbook.asks.map((item, idx) => (
                 <div key={idx} className="grid grid-cols-2 text-sm text-gray-300 mb-2">
-                  <span className="text-red-400">{item.price}</span>
+                  <span className="text-red-400">$ {item.price}</span>
                   <span className="text-white">{item.volume}</span>
                 </div>
               ))}

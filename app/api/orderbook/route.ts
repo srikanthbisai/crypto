@@ -2,15 +2,14 @@ import { NextResponse, NextRequest } from "next/server";
 import axios, { AxiosError } from "axios";
 
 interface CoinbaseOrderBook {
-  asks: [string, string][]; // Array of [price, size]
-  bids: [string, string][]; // Array of [price, size]
-  sequence: number; // Sequence number of the orderbook
+  asks: [string, string][]; 
+  bids: [string, string][]; 
+  sequence: number; 
 }
 
-// Convert trading pair format to Coinbase's format
 function formatPair(pair: string): string {
-  if (pair.includes("-")) return pair; // Already in the correct format
-  return `${pair.slice(0, 3)}-${pair.slice(3)}`; // Convert BTCUSDT -> BTC-USD
+  if (pair.includes("-")) return pair; 
+  return `${pair.slice(0, 3)}-${pair.slice(3)}`; 
 }
 
 async function getCoinbaseOrderBook(pair: string): Promise<CoinbaseOrderBook | null> {
@@ -32,8 +31,8 @@ async function getCoinbaseOrderBook(pair: string): Promise<CoinbaseOrderBook | n
 export async function GET(request: NextRequest) {
   try {
     const url = new URL(request.url);
-    const rawPair = url.searchParams.get("pair") || "BTCUSD"; // Default to BTCUSD
-    const formattedPair = formatPair(rawPair); // Convert to Coinbase's format
+    const rawPair = url.searchParams.get("pair") || "BTCUSD"; 
+    const formattedPair = formatPair(rawPair); 
 
     const orderBook = await getCoinbaseOrderBook(formattedPair);
 
