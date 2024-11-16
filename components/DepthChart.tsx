@@ -10,7 +10,6 @@ import {
   TooltipItem,
   Scale,
   CoreScaleOptions,
-  Tick,
 } from 'chart.js';
 import { Line } from 'react-chartjs-2';
 import annotationPlugin from 'chartjs-plugin-annotation';
