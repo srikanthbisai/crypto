@@ -192,8 +192,8 @@ const DepthChart: React.FC<DepthChartProps> = ({ orderbook }) => {
   } as const;
 
   return (
-    <div className="bg-black text-white shadow-lg p-6 rounded-lg flex flex-col justify-center items-center lg:flex-row  lg:h-[600px]">
-      <div className="w-full h-full lg:w-1/2 bg-[#1a1f2b] max-md:p-2 lg:p-4 rounded-lg">
+    <div className="bg-black text-white shadow-lg p-6 rounded-lg flex flex-col justify-center items-center lg:flex-row  lg:h-[600px] pt-20">
+      <div className="w-full max-md:mt-32 lg:ml-10 h-full lg:w-1/2 bg-[#1a1f2b] max-md:p-2 lg:p-4 rounded-lg">
         <h2 className="text-white text-lg font-semibold mb-4">Depth Chart</h2>
         <div className="lg:h-[90%]">
           <Line data={chartData} options={options} />
@@ -201,10 +201,10 @@ const DepthChart: React.FC<DepthChartProps> = ({ orderbook }) => {
       </div>
 
       <div className="w-full lg:w-1/2 lg:pl-8 mt-6 lg:mt-0">
-        <h3 className="text-3xl font-serif font-semibold mb-4">Market Depth</h3>
+        <h3 className="text-3xl font-serif font-semibold mb-4 text-yellow-500">Market Depth</h3>
         <p className="text-base mb-4 font-serif">
           The <strong>mid price</strong> is calculated as the average of the best bid and best ask prices. In this case, the mid price is{' '}
-          <span className="text-blue-400">{midPrice.toFixed(3)} USDT</span>.
+          <span className="text-green-400">{midPrice.toFixed(3)} USDT</span>.
         </p>
         <p className="text-base mb-4 font-serif">
           The market depth chart helps visualize the bids (buy orders) and asks (sell orders) in the market.
@@ -215,7 +215,7 @@ const DepthChart: React.FC<DepthChartProps> = ({ orderbook }) => {
         </p>
         <p className="text-base mb-4 font-serif">
           The current spread between the best bid and the best ask is{' '}
-          <span className="text-red-500">{spreadPercentage.toFixed(2)}%</span>.
+          <span className="text-orange-500">{spreadPercentage.toFixed(2)}%</span>.
         </p>
       </div>
     </div>

@@ -7,13 +7,13 @@ interface PairSelectorProps {
 
 const PairSelector: React.FC<PairSelectorProps> = ({ selectedPair, setSelectedPair }) => {
   return (
-    <div className=" text-black space-x-10 items-center  pl-3 lg:text-2xl flex">
-      <label htmlFor="pair" className="font-serif font-semibold text-xl lg:text-3xl text-white">
+    <div className=" text-black space-x-10 items-center  lg:ml-20 lg:mt-6 lg:text-2xl flex">
+      <label htmlFor="pair" className="font-serif font-semibold text-xl lg:text-3xl text-orange-500">
         Select Trading Pair
       </label>
       <select
         id="pair"
-        className="border p-2 rounded"
+        className="border p-2 rounded text-lg font-serif text-green-800"
         value={selectedPair}
         onChange={(e) => setSelectedPair(e.target.value)}
       >

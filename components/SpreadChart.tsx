@@ -83,13 +83,13 @@ const SpreadChart: React.FC<SpreadChartProps> = ({ data }) => {
   }, [data]); 
 
   return (
-    <div className="bg-black shadow-lg lg:p-6 rounded-lg flex flex-col lg:flex-row justify-center items-center space-y-6 lg:space-y-0 lg:space-x-8">
-      <div className="w-full max-md:h-[300px] max-md:p-2 max-md:mt-10 lg:w-1/2 lg:h-[600px] lg:p-4 rounded-lg bg-white">
+    <div className="bg-black shadow-lg lg:p-6 flex flex-col lg:flex-row justify-center items-center space-y-6 lg:space-y-0 lg:space-x-8 ">
+      <div className="w-full lg:ml-10 max-md:h-[300px] lg:h-[500px] max-md:p-2 max-md:mt-32 lg:w-1/2 lg:p-4 rounded-lg bg-white">
         <Line data={chartData} options={options} />
       </div>
 
       <div className="w-full lg:w-1/2 p-4 rounded-lg font-serif text-white">
-        <h2 className="text-2xl font-semibold mb-4">Spread Chart</h2>
+        <h2 className="text-2xl font-semibold mb-4 text-yellow-500 lg:text-3xl">Spread Chart</h2>
         <p className="text-base mb-4">
           The spread chart visualizes the percentage difference between the bid and ask prices.
           The <strong className="text-pink-400">Spread</strong> is calculated as:
@@ -100,8 +100,8 @@ const SpreadChart: React.FC<SpreadChartProps> = ({ data }) => {
           unusual market conditions or low liquidity.
         </p>
         <div className="mt-4">
-          <strong className="text-lg">Latest Spread: </strong>
-          <span className="text-xl font-semibold">{latestSpread}%</span>
+          <strong className="text-lg text-green-500">Latest Spread: </strong>
+          <span className="text-xl font-bold text-red-500 font-serif">{latestSpread}%</span>
         </div>
       </div>
     </div>

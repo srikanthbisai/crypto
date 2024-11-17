@@ -22,9 +22,9 @@ const OrderbookTable = ({ orderbook }: { orderbook: Orderbook | null }) => {
   const lowestAsk = Math.min(...orderbook.asks.map(item => item.price));
 
   return (
-    <div className="bg-black shadow-lg p-6 rounded-lg flex flex-col justify-center items-center lg:flex-row text-white lg:h-[600px]">
-      <div className="w-full lg:w-1/2 pr-0 lg:pr-8 mb-6 lg:mb-0 sm:p-10 lg:p-20">
-        <h2 className="text-3xl font-serif font-semibold mb-4">Orderbook Overview</h2>
+    <div className="bg-black shadow-lg sm:p-4  lg:p-6 rounded-lg flex flex-col justify-center items-center lg:flex-row text-white lg:pt-10">
+      <div className="w-full lg:w-1/2 pr-0 lg:pr-8 mb-6 lg:mb-0 sm:p-10 lg:p-20 font-serif">
+        <h2 className="text-3xl font-serif font-semibold mb-4 text-yellow-500">Orderbook Overview</h2>
         <p className="text-base mb-4 font-serif">
           The orderbook displays the current bids and asks for a particular asset. The <span className="text-blue-400">Bids</span> represent buy orders, and the <span className="text-blue-400">Asks</span> represent sell orders.
         </p>
@@ -49,7 +49,7 @@ const OrderbookTable = ({ orderbook }: { orderbook: Orderbook | null }) => {
         </div>
       </div>
 
-      <div className="w-full lg:w-1/2 bg-[#1a1f2b]  rounded-lg max-md:p-4 lg:p-6">
+      <div className="w-full lg:w-1/2 bg-[#1a1f2b]  rounded-lg max-lg:p-4 lg:p-6">
         <h3 className="font-semibold lg:text-xl mb-4 text-white">Orderbook</h3>
         <div className="grid grid-cols-2 gap-4">
           <div>
