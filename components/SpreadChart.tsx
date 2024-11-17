@@ -83,19 +83,19 @@ const SpreadChart: React.FC<SpreadChartProps> = ({ data }) => {
   }, [data]); 
 
   return (
-    <div className="bg-white shadow-lg lg:p-6 rounded-lg flex flex-col lg:flex-row justify-center items-center space-y-6 lg:space-y-0 lg:space-x-8">
-      <div className="w-full max-md:h-[300px] max-md:p-2 max-md:mt-10 lg:w-1/2 lg:h-[600px] lg:p-4 rounded-lg">
+    <div className="bg-black shadow-lg lg:p-6 rounded-lg flex flex-col lg:flex-row justify-center items-center space-y-6 lg:space-y-0 lg:space-x-8">
+      <div className="w-full max-md:h-[300px] max-md:p-2 max-md:mt-10 lg:w-1/2 lg:h-[600px] lg:p-4 rounded-lg bg-white">
         <Line data={chartData} options={options} />
       </div>
 
-      <div className="w-full lg:w-1/2 p-4 rounded-lg font-serif text-black">
+      <div className="w-full lg:w-1/2 p-4 rounded-lg font-serif text-white">
         <h2 className="text-2xl font-semibold mb-4">Spread Chart</h2>
         <p className="text-base mb-4">
           The spread chart visualizes the percentage difference between the bid and ask prices.
           The <strong className="text-pink-400">Spread</strong> is calculated as:
           ((Ask - Bid) / Ask) × 100%
         </p>
-        <p className="text-base text-black mb-4">
+        <p className="text-base text-white mb-4">
           Typical spreads for BTC-USDT are usually below 0.1%. Values above 1% may indicate 
           unusual market conditions or low liquidity.
         </p>

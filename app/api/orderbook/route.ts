@@ -43,11 +43,10 @@ export async function GET(request: NextRequest) {
       );
     }
 
-    // Prepare the response data
     const responseData = {
       asks: orderBook.asks.slice(0, 10), // Top 10 asks
       bids: orderBook.bids.slice(0, 10), // Top 10 bids
-      spread: parseFloat(orderBook.asks[0][0]) - parseFloat(orderBook.bids[0][0]), // Spread calculation
+      spread: parseFloat(orderBook.asks[0][0]) - parseFloat(orderBook.bids[0][0]), 
     };
 
     return NextResponse.json(responseData);
@@ -61,8 +60,11 @@ export async function GET(request: NextRequest) {
     }
 
     return NextResponse.json(
-      { error: `Error fetching data: ${(error instanceof Error ? error.message : "Unknown error")}` },
-      { status: 500 }
+      { 
+        error: `Error fetching data: ${(error instanceof Error ? error.message : "Unknown error")}` },
+      { 
+        status: 500
+      }
     );
   }
 }

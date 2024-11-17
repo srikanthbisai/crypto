@@ -8,7 +8,7 @@ interface PairSelectorProps {
 const PairSelector: React.FC<PairSelectorProps> = ({ selectedPair, setSelectedPair }) => {
   return (
     <div className=" text-black space-x-10 items-center  pl-3 lg:text-2xl flex">
-      <label htmlFor="pair" className="font-serif font-semibold text-white">
+      <label htmlFor="pair" className="font-serif font-semibold text-xl lg:text-3xl text-white">
         Select Trading Pair
       </label>
       <select
