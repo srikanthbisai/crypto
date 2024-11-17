@@ -42,7 +42,6 @@ const HomePage = () => {
       setOrderbook({ bids, asks });
   
       if (bids.length > 0 && asks.length > 0) {
-        // Calculate spread as a percentage
         const spread = (asks[0].price - bids[0].price) / asks[0].price;
         setSpreadData((prev) => [...prev.slice(-59), spread]);
   
@@ -56,11 +55,10 @@ const HomePage = () => {
   };
 
   useEffect(() => {
-    // Fetch the orderbook when the component mounts
     fetchOrderbook(selectedPair);
     const interval = setInterval(() => fetchOrderbook(selectedPair), 1000);
     
-    return () => clearInterval(interval); // Cleanup on component unmount
+    return () => clearInterval(interval); 
   }, [selectedPair]);
 
   return (

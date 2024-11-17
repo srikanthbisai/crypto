@@ -16,9 +16,9 @@ const OrderbookImbalance = ({ imbalance }: OrderbookImbalanceProps) => {
         </p>
       </div>
       <div className="w-full lg:w-1/2 bg-white rounded-lg p-10 text-center">
-        <p className="text-3xl font-semibold text-orange-300 mb-4">Imbalance Value</p>
+        <p className="text-3xl font-semibold text-orange-500 mb-4">Imbalance Value</p>
         <p
-          className={`text-4xl font-semibold ${
+          className={`text-4xl font-bold font-serif ${
             imbalance > 0 ? "text-green-500" : "text-red-500"
           }`}
         >
