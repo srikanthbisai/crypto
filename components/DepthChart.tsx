@@ -1,27 +1,10 @@
 import React from 'react';
-import {
-  Chart as ChartJS,
-  LineElement,
-  PointElement,
-  LinearScale,
-  CategoryScale,
-  Tooltip,
-  Filler,
-  TooltipItem,
-  Scale,
-  CoreScaleOptions,
+import {Chart as ChartJS, LineElement, PointElement, LinearScale, CategoryScale, Tooltip, Filler, TooltipItem, Scale, CoreScaleOptions,
 } from 'chart.js';
 import { Line } from 'react-chartjs-2';
 import annotationPlugin from 'chartjs-plugin-annotation';
 
-ChartJS.register(
-  LineElement,
-  PointElement,
-  LinearScale,
-  CategoryScale,
-  Tooltip,
-  Filler,
-  annotationPlugin
+ChartJS.register( LineElement, PointElement, LinearScale, CategoryScale, Tooltip, Filler, annotationPlugin
 );
 
 interface OrderEntry {
@@ -149,7 +132,7 @@ const DepthChart: React.FC<DepthChartProps> = ({ orderbook }) => {
         },
       },
     },
-    plugins: {
+    plugins: {              // pluggin to show the midValue
       tooltip: {
         callbacks: {
           label: (context: TooltipItem<'line'>) => {
@@ -203,7 +186,7 @@ const DepthChart: React.FC<DepthChartProps> = ({ orderbook }) => {
       <div className="w-full lg:w-1/2 lg:pl-8 mt-6 lg:mt-0">
         <h3 className="text-3xl font-serif font-semibold mb-4 text-yellow-500">Market Depth</h3>
         <p className="text-base mb-4 font-serif">
-          The <strong>mid price</strong> is calculated as the average of the best bid and best ask prices. In this case, the mid price is{' '}
+          The <span>mid price</span> is calculated as the average of the best bid and best ask prices. In this case, the mid price is{' '}
           <span className="text-green-400">{midPrice.toFixed(3)} USDT</span>.
         </p>
         <p className="text-base mb-4 font-serif">

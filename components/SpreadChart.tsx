@@ -1,14 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Line } from 'react-chartjs-2';
-import {
-  Chart,
-  LineElement,
-  PointElement,
-  LinearScale,
-  CategoryScale,
-  Tooltip,
-  ChartOptions,
-  Legend
+import {Chart, LineElement, PointElement,LinearScale, CategoryScale, Tooltip, ChartOptions, Legend
 } from 'chart.js';
 
 Chart.register(LineElement, PointElement, LinearScale, CategoryScale, Tooltip, Legend);
@@ -92,7 +84,7 @@ const SpreadChart: React.FC<SpreadChartProps> = ({ data }) => {
         <h2 className="text-2xl font-semibold mb-4 text-yellow-500 lg:text-3xl">Spread Chart</h2>
         <p className="text-base mb-4">
           The spread chart visualizes the percentage difference between the bid and ask prices.
-          The <strong className="text-pink-400">Spread</strong> is calculated as:
+          The <span className="text-pink-400">Spread</span> is calculated as:
           ((Ask - Bid) / Ask) × 100%
         </p>
         <p className="text-base text-white mb-4">
@@ -100,7 +92,7 @@ const SpreadChart: React.FC<SpreadChartProps> = ({ data }) => {
           unusual market conditions or low liquidity.
         </p>
         <div className="mt-4">
-          <strong className="text-lg text-green-500">Latest Spread: </strong>
+          <span className="text-lg text-green-500">Latest Spread: </span>
           <span className="text-xl font-bold text-red-500 font-serif">{latestSpread}%</span>
         </div>
       </div>

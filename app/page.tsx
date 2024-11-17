@@ -26,7 +26,7 @@ const HomePage = () => {
 
   const fetchOrderbook = async (pair: string) => {
     try {
-      const response = await axios.get(`/api/orderbook?pair=${pair}`);
+      const response = await axios.get(`/api/?pair=${pair}`);
       const data = response.data;
   
       const bids = data.bids.map(([price, volume]: [string, string]) => ({

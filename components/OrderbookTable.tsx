@@ -35,16 +35,16 @@ const OrderbookTable = ({ orderbook }: { orderbook: Orderbook | null }) => {
         <div className="mt-6">
           <h4 className="text-xl font-semibold">Orderbook Insights</h4>
           <p className="text-base">
-            <strong className="text-blue-400">Highest Bid:</strong> ${formatNumber(highestBid)}
+            <span className="text-blue-400">Highest Bid:</span> ${formatNumber(highestBid)}
           </p>
           <p className="text-base">
-            <strong className="text-red-400">Lowest Ask:</strong> ${formatNumber(lowestAsk)}
+            <span className="text-red-400">Lowest Ask:</span> ${formatNumber(lowestAsk)}
           </p>
           <p className="text-base">
-            <strong className="text-green-400">Total Bid Volume:</strong> {formatNumber(totalBidVolume, 4)} units
+            <span className="text-green-400">Total Bid Volume:</span> {formatNumber(totalBidVolume, 4)} units
           </p>
           <p className="text-base">
-            <strong className="text-orange-400">Total Ask Volume:</strong> {formatNumber(totalAskVolume, 4)} units
+            <span className="text-orange-400">Total Ask Volume:</span> {formatNumber(totalAskVolume, 4)} units
           </p>
         </div>
       </div>
