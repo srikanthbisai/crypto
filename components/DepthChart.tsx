@@ -175,7 +175,7 @@ const DepthChart: React.FC<DepthChartProps> = ({ orderbook }) => {
   } as const;
 
   return (
-    <div className="bg-black text-white shadow-lg p-6 rounded-lg flex flex-col justify-center items-center lg:flex-row lg:h-[600px] pt-20">
+    <div className="bg-black text-white shadow-lg p-6 rounded-lg flex flex-col justify-center items-center lg:flex-row lg:h-[600px] ">
       <div className="w-full max-md:mt-32 lg:ml-10 h-full lg:w-1/2 bg-[#1a1f2b] max-md:p-2 lg:p-4 rounded-lg">
         <h2 className="text-white text-lg font-semibold mb-4">Depth Chart</h2>
         <div className="lg:h-[90%]">

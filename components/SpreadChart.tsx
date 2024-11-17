@@ -75,8 +75,8 @@ const SpreadChart: React.FC<SpreadChartProps> = ({ data }) => {
   }, [data]); 
 
   return (
-    <div className="bg-black shadow-lg lg:p-6 flex flex-col lg:flex-row justify-center items-center space-y-6 lg:space-y-0 lg:space-x-8 ">
-      <div className="w-full lg:ml-10 max-md:h-[300px] lg:h-[500px] max-md:p-2 max-md:mt-32 lg:w-1/2 lg:p-4 rounded-lg bg-white">
+    <div className="bg-black shadow-lg lg:p-6 flex flex-col lg:flex-row justify-center items-center space-y-6 lg:space-y-0 lg:space-x-8">
+      <div className="w-full lg:ml-10 max-md:h-[300px] lg:h-[500px] max-md:p-2 max-md:mt-32 lg:w-1/2 lg:p-4 rounded-lg bg-white lg:mt-20">
         <Line data={chartData} options={options} />
       </div>
 
