@@ -46,7 +46,7 @@ const DepthChart: React.FC<DepthChartProps> = ({ orderbook }) => {
     };
   });
 
-  const maxVolume = Math.max(bidCumulative, askCumulative);
+  const maxVolume = Math.max(bidCumulative, askCumulative); //to decide the scale 
   const spreadPercentage = ((sortedAsks[0]?.price - sortedBids[0]?.price) / sortedBids[0]?.price) * 100;
 
   const chartData = {
@@ -57,8 +57,7 @@ const DepthChart: React.FC<DepthChartProps> = ({ orderbook }) => {
         borderColor: '#4CAF50',
         backgroundColor: 'rgba(76, 175, 80, 0.3)',
         fill: true,
-        stepped: 'after' as const,
-        tension: 0,
+        tension: 0.1, // smoothness in the curve
         pointRadius: 0,
         segment: {
           borderWidth: 1.5,
@@ -71,8 +70,7 @@ const DepthChart: React.FC<DepthChartProps> = ({ orderbook }) => {
         borderColor: '#FF5252',
         backgroundColor: 'rgba(255, 82, 82, 0.3)',
         fill: true,
-        stepped: 'before' as const,
-        tension: 0,
+        tension: 0.1, 
         pointRadius: 0,
         segment: {
           borderWidth: 1.5,
@@ -81,6 +79,7 @@ const DepthChart: React.FC<DepthChartProps> = ({ orderbook }) => {
       },
     ],
   };
+  
 
   const options = {
     responsive: true,
