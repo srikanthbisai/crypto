@@ -23,7 +23,7 @@ const OrderbookTable = ({ orderbook }: { orderbook: Orderbook | null }) => {
 
   return (
     <div className="bg-black shadow-lg sm:p-4  lg:p-6 rounded-lg flex flex-col justify-center items-center lg:flex-row text-white lg:pt-10">
-      <div className="w-full lg:w-1/2 pr-0 lg:pr-8 mb-6 lg:mb-0 sm:p-10 lg:p-20 font-serif">
+      <div className="w-full lg:w-1/2 max-md:mt-20 pr-0 lg:pr-8 mb-6 lg:mb-0 sm:p-10 lg:p-20 font-serif">
         <h2 className="text-3xl font-serif font-semibold mb-4 text-yellow-500">Orderbook Overview</h2>
         <p className="text-base mb-4 font-serif">
           The orderbook displays the current bids and asks for a particular asset. The <span className="text-blue-400">Bids</span> represent buy orders, and the <span className="text-blue-400">Asks</span> represent sell orders.
