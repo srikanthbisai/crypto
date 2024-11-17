@@ -6,11 +6,9 @@ interface Orderbook {
 const OrderbookTable = ({ orderbook }: { orderbook: Orderbook | null }) => {
   if (!orderbook) return <div>Loading...</div>;
 
-  // Calculate total bid/ask volume
   const totalBidVolume = orderbook.bids.reduce((acc, item) => acc + item.volume, 0);
   const totalAskVolume = orderbook.asks.reduce((acc, item) => acc + item.volume, 0);
 
-  // Find highest bid and lowest ask
   const highestBid = Math.max(...orderbook.bids.map(item => item.price));
   const lowestAsk = Math.min(...orderbook.asks.map(item => item.price));
 
@@ -42,8 +40,8 @@ const OrderbookTable = ({ orderbook }: { orderbook: Orderbook | null }) => {
         </div>
       </div>
 
-      <div className="w-full lg:w-1/2 bg-black rounded-lg p-6">
-        <h3 className="font-semibold text-xl mb-4 text-white">Orderbook</h3>
+      <div className="w-full lg:w-1/2 bg-black rounded-lg max-md:p-2 lg:p-6">
+        <h3 className="font-semibold lg:text-xl mb-4 text-white">Orderbook</h3>
         <div className="grid grid-cols-2 gap-4">
           <div>
             <h4 className="font-semibold text-yellow-500 mb-2">Bids</h4>

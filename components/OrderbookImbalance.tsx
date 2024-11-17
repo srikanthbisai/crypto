@@ -5,7 +5,7 @@ interface OrderbookImbalanceProps {
 const OrderbookImbalance = ({ imbalance }: OrderbookImbalanceProps) => {
   if (imbalance === null) return <div>Loading...</div>;
 
-  const formattedImbalance = (imbalance * 100).toFixed(2); // Convert to percentage
+  const formattedImbalance = (imbalance * 100).toFixed(2); 
 
   return (
     <div className="bg-white shadow-lg p-6 rounded-lg flex flex-col lg:flex-row justify-center items-center space-y-6 lg:space-y-0 lg:space-x-8 text-black lg:h-[600px]">

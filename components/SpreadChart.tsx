@@ -30,9 +30,9 @@ const SpreadChart: React.FC<SpreadChartProps> = ({ data }) => {
         backgroundColor: 'rgba(79, 70, 229, 0.1)',
         tension: 0.4,
         fill: true,
-        pointBackgroundColor: 'rgb(79, 70, 229)', // Point color
-        pointBorderColor: 'white', // Border around the point
-        pointRadius: 5, // Size of the points
+        pointBackgroundColor: 'rgb(79, 70, 229)', 
+        pointBorderColor: 'white', 
+        pointRadius: 5, 
       },
     ],
   };
@@ -43,7 +43,7 @@ const SpreadChart: React.FC<SpreadChartProps> = ({ data }) => {
     plugins: {
       tooltip: {
         callbacks: {
-          label: (context) => `Spread: ${context.raw}%`, // Show percentage in tooltip
+          label: (context) => `Spread: ${context.raw}%`, 
         },
       },
       legend: {
@@ -60,7 +60,7 @@ const SpreadChart: React.FC<SpreadChartProps> = ({ data }) => {
           text: 'Spread (%)',
         },
         ticks: {
-          callback: (value) => `${value}%`, // Display percentage on Y-axis ticks
+          callback: (value) => `${value}%`, 
         },
       },
       x: {
@@ -74,18 +74,17 @@ const SpreadChart: React.FC<SpreadChartProps> = ({ data }) => {
     },
   };
 
-  // Update the latest spread value when the data changes
   useEffect(() => {
     if (data.length > 0) {
-      // Get the latest value from the chart data (you can modify this logic as needed)
+     
       const latestSpreadValue = (data[data.length - 1] * 100).toFixed(4);
       setLatestSpread(latestSpreadValue);
     }
-  }, [data]); // Runs whenever `data` changes
+  }, [data]); 
 
   return (
-    <div className="bg-white shadow-lg p-6 rounded-lg flex flex-col lg:flex-row justify-center items-center space-y-6 lg:space-y-0 lg:space-x-8">
-      <div className="w-full lg:w-1/2 h-[600px] p-4 rounded-lg">
+    <div className="bg-white shadow-lg lg:p-6 rounded-lg flex flex-col lg:flex-row justify-center items-center space-y-6 lg:space-y-0 lg:space-x-8">
+      <div className="w-full max-md:h-[300px] max-md:p-2 max-md:mt-10 lg:w-1/2 lg:h-[600px] lg:p-4 rounded-lg">
         <Line data={chartData} options={options} />
       </div>
 

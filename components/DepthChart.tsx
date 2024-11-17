@@ -14,7 +14,6 @@ import {
 import { Line } from 'react-chartjs-2';
 import annotationPlugin from 'chartjs-plugin-annotation';
 
-// Register chart components and plugins
 ChartJS.register(
   LineElement,
   PointElement,
@@ -194,9 +193,9 @@ const DepthChart: React.FC<DepthChartProps> = ({ orderbook }) => {
 
   return (
     <div className="bg-white shadow-lg p-6 rounded-lg flex flex-col justify-center items-center lg:flex-row text-black lg:h-[600px]">
-      <div className="w-full lg:w-1/2 bg-[#1a1f2b] p-4 rounded-lg">
+      <div className="w-full h-full lg:w-1/2 bg-[#1a1f2b] max-md:p-2 lg:p-4 rounded-lg">
         <h2 className="text-white text-lg font-semibold mb-4">Depth Chart</h2>
-        <div className="h-[400px]">
+        <div className="lg:h-[90%]">
           <Line data={chartData} options={options} />
         </div>
       </div>
