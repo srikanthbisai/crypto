@@ -1,5 +1,8 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
-
+This project comprises of libraries
+```bash
+"chart.js", "chartjs-plugin-annotation", "react-chartjs-2": "^5.2.0",
+```
 ## Getting Started
 First install the dependencies by running
 ```bash
