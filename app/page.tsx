@@ -7,7 +7,6 @@ import OrderbookImbalance from "@/components/OrderbookImbalance";
 import DepthChart from "@/components/DepthChart";
 import axios from "axios";
 import PairSelector from "@/components/PairSelector";
-import Spinner from "@/components/Spinner";
 
 interface OrderbookEntry {
   price: number;
@@ -64,8 +63,7 @@ const HomePage = () => {
 
   return (
     <div className="p-4 space-y-4">
-      <PairSelector selectedPair={selectedPair} setSelectedPair={setSelectedPair} />
-     
+      <PairSelector selectedPair={selectedPair} setSelectedPair={setSelectedPair} />  
         <>
           <OrderbookTable orderbook={orderbook} />
           <SpreadChart data={spreadData} />
